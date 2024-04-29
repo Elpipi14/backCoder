@@ -11,10 +11,9 @@
                 <p class="card-text">Price: {{product.price}}</p>
                 <p class="card-text">Stocks: {{product.stock}}</p>
                 <p class="card-text">Year: {{product.year}}</p>
-                {{!-- {{#each product.sizessizes.entries}}
-                            <button type="button" class="btn btn-secondary talles">{{this.[0]}}</button>
-                    {{/each}} --}}
-                <button class="btn cart px-auto add-to-cart-btn" data-product-id="{{_id}}">Add Product</button>
+                 <form action="/cart/add/{{product._id}}" method="POST">
+                    <button type="submit" class="btn cart px-auto add-to-cart-btn">Add to Cart</button>
+                </form>
                 </div>  
             </div>
         </div>
