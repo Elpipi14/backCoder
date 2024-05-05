@@ -6,8 +6,6 @@ import ChatManager from "../daos/mongoDb/DB/chat.manager.js";
 const routerViews = Router();
 const chatManager = new ChatManager();
 
-
-
 //Products
 routerViews.get('/', passport.authenticate("jwt", { session: false, failureRedirect: "/login" }), async (req, res) => {
     res.render('partials/index');
@@ -56,9 +54,7 @@ routerViews.post('/contact/send', async (req, res) => {
     };
 });
 
-///-----------Login´s------------//
-
-//Renderiza Login
+//Login
 routerViews.get('/login', async (req, res) => {
     res.render('partials/login');
 });
@@ -72,19 +68,13 @@ routerViews.get('/gitHub', passport.authenticate('github', { failureRedirect: "/
     res.redirect("/profile");
 });
 
-// ------------------------------------------------- 
-
 //renderizar la vista register
-
 routerViews.get('/register', async (req, res) => {
     res.render('partials/register');
 });
 
 
-// ------------------------------------------------- 
-
 // vista profile
-
 routerViews.get('/profile', passport.authenticate("jwt", { session: false, failureRedirect: "/login" }), async (req, res) => {
     try {
         // El objeto req.user contiene el usuario autenticado extraído del token JWT
@@ -96,12 +86,11 @@ routerViews.get('/profile', passport.authenticate("jwt", { session: false, failu
     }
 });
 
-// ------------------------------------------------- 
-
-//error vista
+//errores de vistas
 routerViews.get('/register-error', async (req, res) => {
     res.render('partials/register-error');
 });
+
 routerViews.get('/login-error', async (req, res) => {
     res.render('partials/login-error');
 });
