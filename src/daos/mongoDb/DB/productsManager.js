@@ -12,9 +12,6 @@ export default class ProductsManager {
             };
 
             const result = await ProductsModel.paginate({}, options);
-
-            // const nextLink = result.hasNextPage ? `/api/products?page=${result.nextPage}&limit=${limit}` : null;
-            // const prevLink = result.hasPrevPage ? `/api/products?page=${result.prevPage}&limit=${limit}` : null;
             const nextLink = result.hasNextPage ? `?page=${result.nextPage}&limit=${limit}` : null;
             const prevLink = result.hasPrevPage ? `?page=${result.prevPage}&limit=${limit}` : null;
             return {

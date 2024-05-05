@@ -51,8 +51,8 @@ app.use(express.static('./src/public'));
 
 
 app.use("/api/", routerUser);
-app.use("/api/products", routerDB);
-app.use("/api/cart", routerCartDB);
+app.use("/", routerDB);
+app.use("/cart", routerCartDB);
 app.use("/", routerViews);
 
 //indicar al servidor que comience a escuchar las solicitudes

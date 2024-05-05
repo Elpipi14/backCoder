@@ -3,7 +3,7 @@ const userService = new UserManager()
 
 import generationToken from "../utils/jwt.js";
 
-export const register = async (req, res ) => {
+export const register = async (req, res) => {
     try {
         const { email, password } = req.body;
         const isRegistered = await userService.register({ email, password, ...req.body });
@@ -47,7 +47,7 @@ export const login = async (req, res) => {
             }
             req.session.welcomeMessage = `Bienvenido, ${user.first_name} ${user.last_name}!`;
             console.log(`Welcome message in session: ${req.session.welcomeMessage}`);
-            
+
             res.redirect("/");
         }
     } catch (error) {
